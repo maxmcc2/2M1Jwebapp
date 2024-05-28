@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2MJ Ratings</title>
+    <link rel="stylesheet" type="text/css" href="./public/css/styles.css">
+</head>
+<body>
+  <h1 style="text-align: center;">2MJ SCALE</h1>
+    <form id="ratingForm" action="submit_ratings.php" method="POST">
+
+    <!-- Service Slider-->
+    <label for="service" class="label-with-checkbox"> Service/Server: <input type="checkbox" id="serviceNA" name="service" value="N/A" onchange="toggleSlider('service')" data-na-slider="service">
+    </label>
+    <output id="serviceOutput" class="slider-value"></output>
+    <input type="range" id="service" name="service" min="1" max="10" step="0.5" oninput="updateSliderValue('service', 'serviceOutput')">
+    <div id="serviceIndicator" class="value-indicator"></div>
+
+
+    <!-- Chips Slider--> 
+    <label for="chips" class="label-with-checkbox"> chips/Server: <input type="checkbox" id="chipsNA" name="chips" value="N/A" onchange="toggleSlider('chips')" data-na-slider="chips">
+    </label>
+    <output id="chipsOutput" class="slider-value"></output>
+    <input type="range" id="chips" name="chips" min="1" max="10" step="0.5" oninput="updateSliderValue('chips', 'chipsOutput')">
+    <div id="chipsIndicator" class="value-indicator"></div>
+    
+    <!--
+      <label for="chips" class="label-with-checkbox"> Chips: <input type="checkbox" id="chipsNA" name="chips" value="N/A" onchange="toggleSlider('chips')" data-na-slider="chips">
+      </label>
+      <output id="chipsOutput" class="slider-value"></output>
+      <input type="range" id="chips" name="chips" min="1" max="10" step="0.5" oninput="updateSliderValue('chips', 'chipsOutput')">
+      <div id="chipsIndicator" class="value-indicator"></div>
+    -->
+
+    <!-- Salsa Slider-->
+    <label for="salsa" class="label-with-checkbox">
+      Salsa:
+      <input type="checkbox" id="salsaNA" name="salsa" value="N/A" onchange="toggleSlider('salsa')" data-na-slider="salsa">
+    </label>
+    <output id="salsaOutput" class="slider-value"></output>
+    <input type="range" id="salsa" name="salsa" min="1" max="10" step="0.5" oninput="updateSliderValue('salsa', 'salsaOutput')">
+    <div id="salsaIndicator" class="value-indicator"></div>
+
+    <!-- Queso Slider-->
+    <label for="queso" class="label-with-checkbox">
+      Queso:
+      <input type="checkbox" id="quesoNA" name="queso" value="N/A" onchange="toggleSlider('queso')" data-na-slider="queso">
+    </label>
+    <output id="quesoOutput" class="slider-value"></output>
+    <input type="range" id="queso" name="queso" min="1" max="10" step="0.5" oninput="updateSliderValue('queso', 'quesoOutput')">
+    <div id="quesoIndicator" class="value-indicator"></div>
+
+    <!-- Meal Slider-->
+    <label for="meal" class="label-with-checkbox">
+      Meal:
+      <input type="checkbox" id="mealNA" name="meal" value="N/A" onchange="toggleSlider('meal')" data-na-slider="meal">
+    </label>
+    <output id="mealOutput" class="slider-value"></output>
+    <input type="range" id="meal" name="meal" min="1" max="10" step="0.5" oninput="updateSliderValue('meal', 'mealOutput')">
+    <div id="mealIndicator" class="value-indicator"></div>
+  
+    <!-- Drink Slider-->
+    <label for="drinks" class="label-with-checkbox"> Drinks: <input type="checkbox" id="drinksNA" name="drinks" value="N/A" onchange="toggleSlider('drinks')" data-na-slider="drinks">
+    </label>
+    <output id="drinksOutput" class="slider-value"></output>
+    <input type="range" id="drinks" name="drinks" min="1" max="10" step="0.5" oninput="updateSliderValue('drinks', 'drinksOutput')">
+    <div id="drinksIndicator" class="value-indicator"></div>
+    
+          <div class="button-container">
+              <button type="button" onclick="submitForm()">Submit Ratings</button>
+              <button type="button" onclick="submitForm()">Resubmit Ratings</button>
+              <button type="button" id="resetButton" onclick="reset()">Reset</button>
+          </div>
+          <div class="overall-rankings">
+            <a href="/view/overall_ranks.html"><button type="button">Overall Ranks</button></a>
+            <a href="/view/login.html"><button type="button">Login</button></a>
+        </div>
+      </form>
+
+
+
+    </form>
+    <script src="/src/scripts.js"></script>
+</body>
+</html>
