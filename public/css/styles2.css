@@ -1,0 +1,85 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bar-graph {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    /* Align bars to the bottom */
+    height: 300px;
+    /* Set the height of the graph */
+}
+
+.bar {
+    width: 20px;
+    /* Width of each bar */
+    margin-right: 10px;
+    /* Spacing between bars */
+    background-color: steelblue;
+    color: white;
+    text-align: center;
+    transform: rotate(180deg);
+    /* Rotate bars vertically */
+    transform-origin: bottom;
+    /* Rotate around the bottom */
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.labels span {
+    font-size: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.chart-container {
+    width: 50%;
+    height: 300px;
+    float: left; /* or use display: inline-block; */
+    margin-bottom: 20px;
+  }
+  
+  .canvas-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  

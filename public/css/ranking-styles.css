@@ -1,0 +1,154 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .slider-container {
+    position: relative;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .slider-label {
+    margin-right: 10px;
+    font-weight: bold;
+    width: 100px;
+  }
+  
+  .value-display {
+    position: absolute;
+    color: #000;
+    text-align: center;
+    min-width: 50px;
+    padding: 2px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: none; /* Initially hide the value display */
+    transform: translateX(-50%); /* Center the value display */
+  }
+  
+  input[type=range] {
+    width: 60%;
+  }
+  
+  .na-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .reset-button {
+    margin-top: 10px;
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .reset-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .dropdown {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .dropdown label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .dropdown select {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    overflow-y: auto;
+  }
+  
+  .slider-value {
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
+  .value-indicator {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    display: none;
+  }
+  
+  .na-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .label-with-checkbox {
+    display: inline-flex; /* Use inline-flex to keep the inline layout and allow for flexbox */
+    align-items: center;
+  }
+  
+  .na-label {
+    margin-left: 5px; /* Adjust margin as needed */
+  }
+  
+  /* Adjust the width of the checkbox to accommodate the label */
+  .label-with-checkbox input[type="checkbox"] {
+    margin-right: 5px; /* Adjust margin as needed */
+    width: auto; /* Allow checkbox width to be determined by its content */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .button-container button {
+    width: calc(33.33% - 10px); /* Subtracting margin */
+  }
+  
+  .overall-rankings {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .overall-rankings button {
+    padding: 10px 20px; /* Adjust padding as needed */
+  }
+  
+  /* Add CSS for username display */
+  .username-container {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        font-size: 16px;
+        background-color: #f0f0f0;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+  }
+  
+  
+  
+  

@@ -1,0 +1,65 @@
+input[type="range"] {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.slider-value {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.value-indicator {
+  position: relative;
+  width: 30px;
+  height: 20px;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  display: none;
+}
+
+.na-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label-with-checkbox {
+  display: inline-flex; /* Use inline-flex to keep the inline layout and allow for flexbox */
+  align-items: center;
+}
+
+.na-label {
+  margin-left: 5px; /* Adjust margin as needed */
+}
+
+/* Adjust the width of the checkbox to accommodate the label */
+.label-with-checkbox input[type="checkbox"] {
+  margin-right: 5px; /* Adjust margin as needed */
+  width: auto; /* Allow checkbox width to be determined by its content */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-container button {
+  width: calc(33.33% - 10px); /* Subtracting margin */
+}
+
+.overall-rankings {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.overall-rankings button {
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+
+

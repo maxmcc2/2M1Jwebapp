@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2M1J Ranker</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/ranking-styles.css">
+</head>
+<body>
+  <div class="username-container" id="usernameContainer"></div>   <!-- Add username container -->
+
+  <h1 align="center"> 2M1J Rankings</h1>
+
+  <div class="dropdown">
+    <label for="dropdownMenu">What Restaurant?</label>
+    <select id="dropdownMenu">
+      <option value="option1">Chuys</option>
+      <option value="option2">Taquiera Mexico</option>
+      <option value="option3">Tiendita Boricua</option>
+      <option value="option3">La Garita Restaurant</option>
+    </select>
+  </div>
+
+  <div id="sliders">
+    <div class="slider-container">
+      <label class="slider-label" for="myRangeService">Service/Server:</label>
+      <input type="range" id="myRangeService" max="10" min="0" step="0.5" value="5">
+      <span class="value-display" id="valueDisplayService">5</span>
+      <button class="na-button" id="naService">N/A</button>
+    </div>
+    <div class="slider-container">
+      <label class="slider-label" for="myRangeChips">Chips:</label>
+      <input type="range" id="myRangeChips" max="10" min="0" step="0.5" value="5">
+      <span class="value-display" id="valueDisplayChips">5</span>
+      <button class="na-button" id="naChips">N/A</button>
+    </div>
+    <div class="slider-container">
+      <label class="slider-label" for="myRangeSalsa">Salsa:</label>
+      <input type="range" id="myRangeSalsa" max="10" min="0" step="0.5" value="5">
+      <span class="value-display" id="valueDisplaySalsa">5</span>
+      <button class="na-button" id="naSalsa">N/A</button>
+    </div>
+    <div class="slider-container">
+      <label class="slider-label" for="myRangeQueso">Queso:</label>
+      <input type="range" id="myRangeQueso" max="10" min="0" step="0.5" value="5">
+      <span class="value-display" id="valueDisplayQueso">5</span>
+      <button class="na-button" id="naQueso">N/A</button>
+    </div>
+    <div class="slider-container">
+      <label class="slider-label" for="myRangeMeal">Meal:</label>
+      <input type="range" id="myRangeMeal" max="10" min="0" step="0.5" value="5">
+      <span class="value-display" id="valueDisplayMeal">5</span>
+      <button class="na-button" id="naMeal">N/A</button>
+    </div>
+    <div class="slider-container">
+      <label class="slider-label" for="myRangeDrinks">Drinks:</label>
+      <input type="range" id="myRangeDrinks" max="10" min="0" step="0.5" value="5">
+      <span class="value-display" id="valueDisplayDrinks">5</span>
+      <button class="na-button" id="naDrinks">N/A</button>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button type="button" onclick="submitForm()">Submit Ratings</button>
+    <button type="button" onclick="submitForm()">Resubmit Ratings</button>
+    <button type="button" id="resetButton" onclick="reset()">Reset</button>
+  </div>
+
+  <div class="overall-rankings">
+    <a href="/view/overall_ranks.html"><button type="button">Overall Ranks</button></a>
+    <a href="/view/login.html"><button type="button">Login</button></a>
+  </div>
+
+  <script src="/src/ranking-js.js"></script>
+  <script>
+    // Read username from cookies
+    function getUsernameFromCookie() {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Assuming username is stored in a cookie named "username"
+        if (cookie.startsWith('username=')) {
+          return cookie.substring('username='.length);
+        }
+      }
+      return null; // Return null if username cookie not found
+    }
+
+    // Display username
+    const usernameContainer = document.getElementById('usernameContainer');
+    const username = getUsernameFromCookie();
+    if (username) {
+      usernameContainer.textContent = 'Welcome, ' + username;
+    } else {
+      usernameContainer.textContent = 'Welcome, Guest';
+    }
+  </script>
+</body>
+</html>

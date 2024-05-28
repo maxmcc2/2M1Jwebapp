@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2M1J Ranks</title>
+    <link rel="stylesheet" href="../public/css/login-overallRanks.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+      <!-- Add username container -->
+  <div class="username-container" id="usernameContainer"></div>
+
+  <h1 align="center"> 2M1J Rankings
+
+  <div class="dropdown">
+    <select id="dropdownMenu">
+      <option value="option1">Chuys</option>
+      <option value="option2">Taquiera Mexico</option>
+      <option value="option3">Tiendita Boricua</option>
+      <option value="option3">La Garita Restaurant</option>
+      <option value="option3">The Overall Ranks</option>
+    </select>
+</div>
+</h1>
+
+
+    <div class="container-wrapper">
+        <div class="container-row">
+            <div class="container">
+                <canvas id="myChart1" style="width:100%;max-width:600px"></canvas>
+            </div>
+            <div class="container">
+                <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+            </div>
+            <div class="container">
+                <canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
+            </div>
+        </div>
+        <div class="container-row">
+            <div class="container">
+                <canvas id="myChart4" style="width:100%;max-width:600px"></canvas>
+            </div>
+            <div class="container">
+                <canvas id="myChart5" style="width:100%;max-width:600px"></canvas>
+            </div>
+            <div class="container">
+                <canvas id="myChart6" style="width:100%;max-width:600px"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container">
+        <a href="/view/rating.html"><button type="button">Indiviudal Ratings</button></a>
+        <a href="/view/login.html"><button type="button">Login/Logout</button></a>
+        <a href="/view/results.html"><button type="button">Overall Ranks</button></a>
+      </div>
+
+
+
+
+    <script>
+         // Read username from cookies
+    function getUsernameFromCookie() {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Assuming username is stored in a cookie named "username"
+        if (cookie.startsWith('username=')) {
+          return cookie.substring('username='.length);
+        }
+      }
+      return null; // Return null if username cookie not found
+    }
+
+    // Display username
+    const usernameContainer = document.getElementById('usernameContainer');
+    const username = getUsernameFromCookie();
+    if (username) {
+      usernameContainer.textContent = 'Welcome, ' + username;
+    } else {
+      usernameContainer.textContent = 'Welcome, Guest';
+    }
+
+        const xValues = ["Mike", "Max", "Jack", "Average"];
+        const labelColors = {
+            "Mike": "blue",
+            "Max": "gray", // You can change the color here
+            "Jack": "red",
+            "Average": "orange"
+        };
+    
+        const chartData = [
+            { title: "Service/Server", yValues: [1, 2, 2.5, 1.8] },
+            { title: "Chips", yValues: [3, 3.5, 3, 3.2] },
+            { title: "Salsa", yValues: ["N/A", 3, 4, 3.5] },
+            { title: "Queso", yValues: [6, 4, 5, 5] },
+            { title: "Meal", yValues: [5, 5, 6, 5.3] },
+            { title: "Drinks", yValues: [1, "N/A", "N/A", 1] }
+        ];
+    
+        function createChart(chartId, title, yValues) {
+            
+            const filteredData = yValues.map(value => value !== "N/A" ? value : null); // Replace "N/A" with null
+            const filteredYValues = filteredData.filter(value => value !== null).map(Number); // Filter out null values and convert the rest to numbers
+            const minVal = Math.min(...filteredYValues) - 0.5; // Adjusted by 0.5 for padding
+            const maxVal = Math.max(...filteredYValues) + 0.5; // Adjusted by 0.5 for padding
+
+
+            const backgroundColors = xValues.map(label => labelColors[label] || 'orange');
+    
+            new Chart(chartId, {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: backgroundColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: title
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                stepSize: 0.5,
+                                min: minVal, // Set minimum value for the y-axis
+                                max: 10
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+    
+        for (let i = 0; i < chartData.length; i++) {
+            const data = chartData[i];
+            createChart(`myChart${i+1}`, data.title, data.yValues);
+        }
+    </script>
+    
+    
+        
+    
+       
+</body>
+</html>
